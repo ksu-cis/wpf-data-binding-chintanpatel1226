@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,7 +25,7 @@ namespace UniversityRegistry.UI
             InitializeComponent();
 
             // Initializes the list of university people
-            var people = new List<Person>()
+            var people = new ObservableCollection<Person>()
             {
                 new Person(){FirstName="Mother", LastName="Goose", DateOfBirth=new DateTime(1843, 10, 20), Role=Role.Faculty, Active=false},
                 new Person(){FirstName="Peter", LastName="Pumpkineater", DateOfBirth=new DateTime(1966, 3, 15), Role=Role.Faculty, Active=true},
@@ -38,6 +39,24 @@ namespace UniversityRegistry.UI
                 new Person(){FirstName="Dora", LastName="Explorer", DateOfBirth=new DateTime(1999, 6, 12), Role=Role.UndergraduateStudent, Active=true},
                 new Person(){FirstName="Caillou", LastName="Pine", DateOfBirth=new DateTime(1997, 9, 15), Role=Role.UndergraduateStudent, Active=true}
             };
+            DataContext = people;
+        }
+
+        /// <summary>
+        /// Updates the DataContext of the PersonControl to the item selected in the PersonList
+        /// </summary>
+        /// <param name="sender">The list of people</param>
+        /// <param name="e">The selection detail</param>
+        private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(e.AddedItems.Count == 0)
+            {
+                pcDetails.DataContext = null;
+            }
+            else
+            {
+                pcDetails.DataContext = e.AddedItems[0];
+            }
         }
     }
 }
