@@ -9,16 +9,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="400">
     
-    <UserControl.Resources>
-        <local:EnumToBooleanConverter x:Key="enumToBooleanConverter"/>
-        <ObjectDataProvider MethodName="GetValues"
-                ObjectType="{x:Type system:Enum}"
-                x:Key="roles">
-            <ObjectDataProvider.MethodParameters>
-                <x:Type TypeName="data:Role" />
-            </ObjectDataProvider.MethodParameters>
-        </ObjectDataProvider>
-    </UserControl.Resources>
     <Border Padding="10">
         <StackPanel>
             <TextBlock FontSize="18">Personal Details</TextBlock>
@@ -37,11 +27,11 @@
             <Label Content="Role"/>
             <TextBox Name="txtRole" Text="{Binding Path=Role}"/>
 
-            <RadioButton GroupName="Role" IsChecked="{Binding Path=Role, Converter={StaticResource enumToBooleanConverter}, ConverterParameter={x:Static data:Role.UndergraduateStudent}}">Undergraduate Student</RadioButton>
-            <RadioButton GroupName="Role" IsChecked="{Binding Path=Role, Converter={StaticResource enumToBooleanConverter}, ConverterParameter={x:Static data:Role.GraduateStudent}}">Graduate Student</RadioButton>
-            <RadioButton GroupName="Role" IsChecked="{Binding Path=Role, Converter={StaticResource enumToBooleanConverter}, ConverterParameter={x:Static data:Role.Faculty}}">Faculty</RadioButton>
-            <RadioButton GroupName="Role" IsChecked="{Binding Path=Role, Converter={StaticResource enumToBooleanConverter}, ConverterParameter={x:Static data:Role.Staff}}">Staff</RadioButton>
-
+            <RadioButton GroupName="Role" IsChecked="{Binding Path=IsUndergraduateStudent}">Undergraduate Student</RadioButton>
+            <RadioButton GroupName="Role" IsChecked="{Binding Path=IsGraduateStudent}">Graduate Student</RadioButton>
+            <RadioButton GroupName="Role" IsChecked="{Binding Path=IsFaculty}">Faculty</RadioButton>
+            <RadioButton GroupName="Role" IsChecked="{Binding Path=IsStaff}">Staff</RadioButton>
+            
         </StackPanel>
     </Border>
 </UserControl>

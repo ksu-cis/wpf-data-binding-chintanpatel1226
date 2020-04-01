@@ -25,11 +25,8 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <Label Content="First Name"/>
                             <TextBlock Text="{Binding Path=FirstName}" Grid.Column="0"/>
-                            <Label Content="Last Name"/>
                             <TextBlock Text="{Binding Path=LastName}" Grid.Column="1"/>
-                            <Label Content="ID"/>
                             <TextBlock Text="{Binding Path=ID}" Grid.Column="2"/>
                         </Grid>
                     </DataTemplate>
