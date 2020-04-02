@@ -39,20 +39,47 @@ namespace UniversityRegistry.Data
             }
         }
 
+        private string lastName;
         /// <summary>
         /// The person's last name
         /// </summary>
-        public string LastName { get; set; }
+        public string LastName {
+            get { return lastName; }
+            set
+            {
+                if (lastName == value) return;
+                lastName = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("LastName"));
+            }
+        }
 
+        private DateTime dateOfBirth;
         /// <summary>
         /// The person's date of birth
         /// </summary>
-        public DateTime DateOfBirth { get; set; }
+        public DateTime DateOfBirth {
+            get { return dateOfBirth; }
+            set
+            {
+                if (dateOfBirth == value) return;
+                dateOfBirth = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("DateOfBirth"));
+            }
+        }
 
+        private bool active;
         /// <summary>
         /// If this person is active in the university (currently a part of the university)
         /// </summary>
-        public bool Active { get; set; }
+        public bool Active {
+            get { return active; }
+            set
+            {
+                if (active == value) return;
+                active = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Active"));
+            }
+        }
 
         public bool IsFaculty
         {

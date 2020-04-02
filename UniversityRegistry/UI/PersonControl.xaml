@@ -31,7 +31,9 @@
             <RadioButton GroupName="Role" IsChecked="{Binding Path=IsGraduateStudent}">Graduate Student</RadioButton>
             <RadioButton GroupName="Role" IsChecked="{Binding Path=IsFaculty}">Faculty</RadioButton>
             <RadioButton GroupName="Role" IsChecked="{Binding Path=IsStaff}">Staff</RadioButton>
-            
+
+            <Label Content="ID"/>
+            <TextBox Text="{Binding Path=ID, Mode=OneWay}"/>
         </StackPanel>
     </Border>
 </UserControl>
